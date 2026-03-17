@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Deseos | Relax Hogar</title>
+
+    <link rel="stylesheet" href="../CSS/ListaDeDeseos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">🛏️ RELAX HOGAR</div>
+
+    <nav>
+        <a href="../HTML/index.html">Productos</a>
+        <a href="../HTML/index.html#Nosotros">Nuestra Empresa</a>
+        <a href="#destacados">Destacados</a>
+        <a href="../HTML/listaDeseos.html" class="active">Lista de deseos</a>
+    </nav>
+
+<div id="btnLogin">
+    <a href="../HTML/login.html" class="btn">Iniciar sesión</a>
+    <a href="../HTML/registro.html" class="btn-outline">Registrarse</a>
+</div>
+
+<div id="userSession" class="nav-sesion">
+    <span id="nombreUsuario"></span>
+    <button onclick="cerrarSesion()">Cerrar sesión</button>
+</div>
+
+
+</header>
+
+<main class="contenedor-deseos">
+    <h1>💖 Mi Lista de Deseos</h1>
+
+    <p id="cargando">⏳ Cargando tu lista de deseos...</p>
+
+    <div id="listaDeseos" class="wishlist-grid"></div>
+
+    <div class="acciones">
+        <button class="btn-secundario">💳 Método de pago</button>
+        <button class="btn-secundario">🧾 Factura virtual</button>
+         <button class="btn-principal" onclick="irAPago()">✅ Finalizar compra</button>
+
+    </div>
+</main>
+
+<script src="../JS/listaDeseos.js"></script>
+<script src="../JS/sesion.js"></script>
+</body>
+</html>

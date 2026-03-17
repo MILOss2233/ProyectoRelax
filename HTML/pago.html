@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pago | Relax Hogar</title>
+
+    <link rel="stylesheet" href="../CSS/pago.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="pago-box">
+
+    <h2>💳 Detalles del pago</h2>
+
+    <!-- MÉTODOS DE PAGO -->
+    <div class="metodos-pago">
+        <label>
+            <input type="radio" name="metodo" checked>
+            Tarjetas
+        </label>
+
+        <label>
+            <input type="radio" name="metodo">
+            Conecta efectivo
+        </label>
+
+        <label>
+            <input type="radio" name="metodo">
+            Transferencias
+        </label>
+    </div>
+
+    <!-- FORMULARIO TARJETA -->
+    <div class="form-tarjeta">
+
+        <label>Número de tarjeta</label>
+        <input id="tarjeta" type="text" placeholder="1234 5678 9012 3456">
+
+        <div class="fila">
+            <div>
+                <label>Fecha de expiración</label>
+                <input id="fecha" type="text" placeholder="MM/AA">
+            </div>
+
+            <div>
+                <label>CVV</label>
+                <input id="cvv" type="password" placeholder="123">
+            </div>
+        </div>
+
+        <label class="guardar">
+            <input type="checkbox">
+            Guardar los datos de la tarjeta
+        </label>
+
+    </div>
+
+    <!-- BOTÓN -->
+    <button onclick="pagar()">Pagar ahora</button>
+
+</div>
+
+<script src="../JS/pago.js"></script>
+</body>
+</html>

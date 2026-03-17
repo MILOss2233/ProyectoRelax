@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax Hogar | Cobijas & Almohadas</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span class="icono">🛏️</span>
+        <span>RELAX HOGAR</span>
+    </div>
+
+    <nav>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nuestra Empresa</a>
+        <a href="#destacados">Destacados</a>
+        <a href="listaDeseos.html">Lista de deseos</a>
+    </nav>
+
+<div class="cliente" id="clienteNav">
+<div id="btnLogin">
+    <a href="../HTML/login.html" class="btn">Iniciar sesión</a>
+    <a href="../HTML/registro.html" class="btn-outline">Registrarse</a>
+</div>
+
+<div id="userSession" class="nav-sesion">
+    <span id="nombreUsuario"></span>
+    <button onclick="cerrarSesion()">Cerrar sesión</button>
+</div>
+
+
+</header>
+
+<!-- HERO -->
+<section id="nosotros" class="hero">
+    <div class="hero-texto">
+        <h1>Comodidad que abraza tu descanso</h1>
+        <p>
+            En Relax Hogar diseñamos cobijas y almohadas pensadas para brindarte
+            suavidad, calidad y el mejor descanso cada noche.
+        </p>
+        <a href="#productos" class="btn-principal">Ver productos</a>
+    </div>
+
+    <div class="hero-img">
+        <img src="../IMAGENES/WhatsApp_Image_2025-06-02_at_4.41.28_PM.webp" alt="Relax Hogar">
+    </div>
+</section>
+
+<!-- PRODUCTOS DESTACADOS -->
+<section id="destacados" class="productos-destacados">
+    <h2>Productos Destacados</h2>
+
+    <div class="carrusel">
+        <button class="flecha" onclick="mover(-1)">❮</button>
+
+        <div class="producto-activo">
+            <img src="../IMAGENES/WhatsApp_Image_2025-06-02_at_4.41.28_PM.webp" alt="Cobija Premium">
+            <div class="info">
+                <h3>Cobija Premium</h3>
+                <p>Ultra suave, ideal para noches frías.</p>
+                <span>$120.000</span>
+                <button>Ver detalles</button>
+            </div>
+        </div>
+
+        <button class="flecha" onclick="mover(1)">❯</button>
+    </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="productos" class="catalogo">
+    <h2>Nuestros Productos</h2>
+
+    <div class="grid">
+        <div class="card">
+            <img src="../IMAGENES/isranunkel-almohada-ergonomica-multiposicion__1268134_pe928636_s5.avif">
+            <h4>Almohada Ergonómica</h4>
+            <p>Soporte perfecto para cuello.</p>
+            <span>$80.000</span>
+            <button onclick="agregarDeseo(1)">Agregar a deseos</button>
+
+
+        </div>
+
+        <div class="card">
+            <img src="../IMAGENES/7702704472673-1.webp">
+            <h4>Cobija Polar</h4>
+            <p>Calidez y suavidad extrema.</p>
+            <span>$95.000</span>
+           <button onclick="agregarDeseo(2)">Agregar a deseos</button>
+
+
+        </div>
+
+        <div class="card">
+            <img src="../IMAGENES/images.jpg">
+            <h4>Almohada Memory Foam</h4>
+            <p>Se adapta a tu descanso.</p>
+            <span>$110.000</span>
+            <button onclick="agregarDeseo(3)">Agregar a deseos</button>
+
+
+        </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 Relax Hogar | Descansa mejor</p>
+</footer>
+
+<script src="../JS/productos.js"></script>
+<script src="../JS/sesion.js"></script>
+
+<script>
+function agregarDeseo(id) {
+    let lista = JSON.parse(localStorage.getItem("listaDeseos")) || [];
+
+    const producto = productos.find(p => p.id === id);
+
+    if (!producto) {
+        alert("Producto no encontrado");
+        return;
+    }
+
+    const existe = lista.some(p => p.id === id);
+
+    if (existe) {
+        alert("Este producto ya está en tu lista de deseos");
+        return;
+    }
+
+    lista.push(producto);
+    localStorage.setItem("listaDeseos", JSON.stringify(lista));
+
+    alert("❤️ Producto agregado a tu lista de deseos");
+}
+</script>
+
+<script>
+const productos = [
+    {
+        id: 1,
+        nombre: "Almohada Ergonómica",
+        precio: 80000,
+        imagen: "isranunkel-almohada-ergonomica-multiposicion__1268134_pe928636_s5.avif"
+    },
+    {
+        id: 2,
+        nombre: "Cobija Polar",
+        precio: 95000,
+        imagen: "7702704472673-1.webp"
+    },
+    {
+        id: 3,
+        nombre: "Almohada Memory Foam",
+        precio: 110000,
+        imagen: "images.jpg"
+    }
+];
+</script>
+</body>
+</html>

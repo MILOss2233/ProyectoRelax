@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura | Relax Hogar</title>
+
+    <link rel="stylesheet" href="../CSS/factura.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="factura-box">
+
+    <div class="factura-header">
+        <h1>🧾 Factura Virtual</h1>
+        <p>Gracias por tu compra</p>
+    </div>
+
+    <div class="factura-info">
+        <p><strong>Cliente:</strong> <span id="cliente"></span></p>
+        <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+    </div>
+
+    <div class="factura-productos">
+        <h3>🛒 Productos comprados</h3>
+        <ul id="listaProductos"></ul>
+    </div>
+
+    <div class="factura-total">
+        <p>Total pagado:</p>
+        <h2 id="total"></h2>
+    </div>
+
+    <div class="factura-acciones">
+        <a href="../HTML/index.html" class="btn-principal">Volver al inicio</a>
+    </div>
+
+</div>
+
+<script src="../JS/factura.js"></script>
+</body>
+</html>

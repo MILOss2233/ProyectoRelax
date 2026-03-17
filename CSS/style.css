@@ -1,0 +1,321 @@
+:root {
+    --principal: #e89cae;
+    --principal-hover: #d87c93;
+    --fondo-suave: #fdf4f6;
+    --texto: #333;
+    --blanco: #fff;
+    --oscuro: #222;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #fff, var(--fondo-suave));
+    color: var(--texto);
+}
+
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #e89cae;
+}
+
+/* BOTONES */
+.btn,
+.btn-principal {
+    background: var(--principal);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn-principal:hover {
+    background: var(--principal-hover);
+    transform: translateY(-2px);
+}
+
+/* Botón contorno */
+.btn-outline {
+    border: 2px solid var(--principal);
+    background: transparent;
+    color: var(--principal);
+    padding: 9px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--principal);
+    color: white;
+}
+
+
+/* HERO */
+.hero {
+    margin-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px;
+    background: #f3e3e0;
+}
+
+.hero-texto {
+    max-width: 450px;
+    animation: fadeIn 1s ease;
+}
+
+.hero-img img {
+    width: 350px;
+    border-radius: 20px;
+}
+
+/* PRODUCTOS */
+.productos-destacados, .catalogo {
+    padding: 60px;
+    text-align: center;
+}
+
+.carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto-activo img {
+    width: 260px;
+    height: 200px;              /* 👈 limita el tamaño */
+    object-fit: cover;          /* 👈 recorta sin deformar */
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    transition: all .3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.btn-principal {
+    background: #e89cae;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px; /* 👈 baja el botón */
+}
+.nav-sesion {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-sesion span {
+    font-weight: 600;
+    color: #5c2bbf;
+}
+
+.nav-sesion button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 14px;
+    background-color: #e89cae;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+}
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* SESIÓN */
+.user-session {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-session span {
+    font-weight: bold;
+    color: #5c2bbf;
+}
+
+.user-session button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 12px;
+    background: #e89cae;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+}
+.card button {
+    margin-top: 12px;
+    width: 100%;
+    background: var(--principal);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card button:hover {
+    background: var(--principal-hover);
+    transform: scale(1.03);
+}
+.nav-sesion span {
+    background: var(--fondo-suave);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.producto-activo button {
+    margin-top: 10px;
+    background: var(--principal);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.producto-activo button:hover {
+    background: var(--principal-hover);
+    transform: translateY(-2px);
+}
+.flecha {
+    background: white;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.flecha:hover {
+    background: #e89cae;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.flecha:active {
+    transform: scale(0.95);
+}
+
+/* CONTENEDOR DEL PRODUCTO ACTIVO */
+.producto-activo {
+    text-align: center;
+    animation: aparecer 0.5s ease;
+}
+
+.producto-activo img,
+.producto-activo .info {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* PRODUCTO ACTIVO */
+.producto-activo {
+    position: relative;
+    text-align: center;
+}
+
+/* IMAGEN – efecto premium */
+.producto-activo img {
+    transition: filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover sutil (no zoom) */
+.producto-activo:hover img {
+    filter: brightness(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
