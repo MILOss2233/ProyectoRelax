@@ -1,17 +1,13 @@
-// 🔒 Si ya hay sesión, redirige
-if (localStorage.getItem("usuarioActivo")) {
-    window.location.href = "index.html";
-}
+function registrar(e) {
+    if (e) e.preventDefault();
 
-function registrar() {
-    const email = document.getElementById("email").value;
-    const usuario = document.getElementById("usuario").value;
-    const password = document.getElementById("password").value;
-    const confirmar = document.getElementById("confirmar").value;
+    const email = document.getElementById("email").value.trim();
+    const usuario = document.getElementById("usuario").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmar = document.getElementById("confirmar").value.trim();
     const robot = document.getElementById("robot").checked;
     const loader = document.getElementById("loader");
 
-    // VALIDACIONES
     if (email === "" || usuario === "" || password === "" || confirmar === "") {
         alert("Completa todos los campos");
         return;
@@ -28,21 +24,32 @@ function registrar() {
     }
 
     if (!robot) {
-        alert("Por favor confirma que no eres un robot");
+        alert("Confirma que no eres un robot");
         return;
     }
 
-    const nuevoUsuario = {
-        email,
-        usuario,
-        password
-    };
-
     loader.style.display = "block";
 
-    setTimeout(() => {
-        localStorage.setItem("usuarioRegistrado", JSON.stringify(nuevoUsuario));
-        localStorage.setItem("usuarioActivo", usuario);
-        window.location.href = "index.html";
-    }, 1800);
+    fetch("../PROGRAMAS/registro.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${email}&usuario=${usuario}&password=${password}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        loader.style.display = "none";
+
+        if (data.trim() === "ok") {
+            alert("Registro exitoso");
+            window.location.href = "login.html";
+        } else if (data.trim() === "usuario_existe") {
+            alert("El usuario ya existe");
+        } else if (data.trim() === "correo_existe") {
+            alert("Este correo ya está registrado");
+        } else {
+            alert("Error: " + data);
+        }
+    });
 }

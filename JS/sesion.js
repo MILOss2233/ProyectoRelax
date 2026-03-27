@@ -1,19 +1,43 @@
-const usuarioActivo = localStorage.getItem("usuarioActivo");
+const ruta = window.location.pathname;
 
-const btnLogin = document.getElementById("btnLogin");
-const userSession = document.getElementById("userSession");
-const nombreUsuario = document.getElementById("nombreUsuario");
+if (!ruta.includes("login") && !ruta.includes("registro")) {
 
-if (usuarioActivo) {
-    if (btnLogin) btnLogin.style.display = "none";
-    if (userSession) userSession.style.display = "flex";
-    if (nombreUsuario) nombreUsuario.textContent = usuarioActivo;
-} else {
-    if (btnLogin) btnLogin.style.display = "flex";
-    if (userSession) userSession.style.display = "none";
+fetch("../PROGRAMAS/sesion.php")
+.then(res => res.json())
+.then(data => {
+
+    const btnLogin = document.getElementById("btnLogin");
+    const userSession = document.getElementById("userSession");
+    const nombreUsuario = document.getElementById("nombreUsuario");
+
+    if (!btnLogin || !userSession || !nombreUsuario) return;
+
+    if (data.estado === "activo") {
+        btnLogin.style.display = "none";
+        userSession.style.display = "flex";
+        nombreUsuario.textContent = data.usuario; // 👈 AQUÍ SE MUESTRA
+    } else {
+        btnLogin.style.display = "flex";
+        userSession.style.display = "none";
+    }
+});
+
 }
-
 function cerrarSesion() {
-    localStorage.removeItem("usuarioActivo");
-    location.reload();
+    fetch("/Proyecto/PROGRAMAS/logout.php")
+    .then(() => location.reload());
+}
+fetch("../PROGRAMAS/perfil_usuario.php")
+.then(res=>res.json())
+.then(data=>{
+    if(data.nombre){
+        document.getElementById("nombreUsuario").textContent = data.nombre;
+    }
+
+    if(data.foto){
+        document.getElementById("fotoNav").src = "../IMAGENES/" + data.foto;
+    }
+});
+function irPerfil(){
+    window.location.href = "perfil.html";
 }

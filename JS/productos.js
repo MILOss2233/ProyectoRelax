@@ -1,76 +1,69 @@
-const productos = [
-    {
-        id: 1,
-        nombre: "Almohada Ergonómica",
-        precio: 80000,
-        imagen: "isranunkel-almohada-ergonomica-multiposicion__1268134_pe928636_s5.avif"
-    },
-    {
-        id: 2,
-        nombre: "Cobija Polar",
-        precio: 95000,
-        imagen: "7702704472673-1.webp"
-    },
-    {
-        id: 3,
-        nombre: "Almohada Memory Foam",
-        precio: 110000,
-        imagen: "images.jpg"
+let productosGlobal = [];
+
+fetch("../PROGRAMAS/productos.php")
+.then(res => res.json())
+.then(data => {
+
+    productosGlobal = data;
+
+    const contenedor = document.querySelector(".grid");
+    contenedor.innerHTML = "";
+
+   data.forEach(p => {
+
+    let boton = "";
+
+    if(p.stock <= 0){
+        boton = `<p style="color:red;font-weight:bold;">AGOTADO</p>`;
+    } else {
+        boton = `
+        <button onclick="agregarCarrito(${p.id_producto})">
+            🛒 Agregar al carrito
+        </button>`;
     }
-];
-const destacados = [
-    {
-        nombre: "Cobija Premium",
-        descripcion: "Ultra suave, ideal para noches frías.",
-        precio: "$120.000",
-        imagen: "IMAGENES/WhatsApp_Image_2025-06-02_at_4.41.28_PM.webp"
-    },
-    {
-        nombre: "Cobija Polar",
-        descripcion: "Calidez y suavidad extrema.",
-        precio: "$95.000",
-        imagen: "IMAGENES/7702704472673-1.webp"
-    },
-    {
-        nombre: "Almohada Memory Foam",
-        descripcion: "Se adapta a tu descanso.",
-        precio: "$110.000",
-        imagen: "IMAGENES/images.jpg"
+
+    contenedor.innerHTML += `
+        <div class="card">
+            <img src="../IMAGENES/${p.imagen}">
+            <h4>${p.nombre}</h4>
+            <span>$${p.precio}</span>
+            <p>Stock: ${p.stock}</p>
+            ${boton}
+        </div>
+    `;
+});
+
+});
+
+// 🛒 AGREGAR AL CARRITO
+function agregarCarrito(id) {
+
+    let carrito = JSON.parse(localStorage.getItem("listaDeseos")) || [];
+
+    id = Number(id);
+
+    const producto = productosGlobal.find(p => Number(p.id_producto) == id);
+
+    if (!producto) {
+        alert("Producto no encontrado");
+        return;
     }
-];
 
-let indice = 0;
+    const existe = carrito.find(p => Number(p.id) == id);
 
-function mover(direccion) {
-    const contenedor = document.querySelector(".producto-activo");
-    const img = contenedor.querySelector("img");
-    const titulo = contenedor.querySelector("h3");
-    const texto = contenedor.querySelector("p");
-    const precio = contenedor.querySelector("span");
+    if (existe) {
+        existe.cantidad += 1;
+    } else {
+        carrito.push({
+            id: Number(producto.id_producto),
+            nombre: producto.nombre,
+            precio: Number(producto.precio),
+            imagen: producto.imagen,
+            cantidad: 1
+        });
+    }
 
-    // Animación de salida
-    img.style.opacity = 0;
-    img.style.transform = "translateX(-30px)";
-    contenedor.querySelector(".info").style.opacity = 0;
-    contenedor.querySelector(".info").style.transform = "translateX(30px)";
+    localStorage.setItem("listaDeseos", JSON.stringify(carrito));
 
-    setTimeout(() => {
-        indice += direccion;
-
-        if (indice < 0) indice = destacados.length - 1;
-        if (indice >= destacados.length) indice = 0;
-
-        const producto = destacados[indice];
-
-        img.src = producto.imagen;
-        titulo.textContent = producto.nombre;
-        texto.textContent = producto.descripcion;
-        precio.textContent = producto.precio;
-
-        // Animación de entrada
-        img.style.opacity = 1;
-        img.style.transform = "translateX(0)";
-        contenedor.querySelector(".info").style.opacity = 1;
-        contenedor.querySelector(".info").style.transform = "translateX(0)";
-    }, 300);
+    alert("🛒 Producto agregado");
 }
