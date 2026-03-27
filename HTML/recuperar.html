@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Recuperar contraseña</title>
+<link rel="stylesheet" href="../CSS/auth.css">
+</head>
+<body>
+
+<div class="form">
+    <h2>Recuperar contraseña</h2>
+
+    <input type="email" id="correo" placeholder="Ingresa tu correo">
+    <button onclick="verificarCorreo()">Continuar</button>
+</div>
+
+<script>
+function verificarCorreo(){
+
+    const correo = document.getElementById("correo").value;
+
+    fetch("../PROGRAMAS/verificar_correo.php",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({correo})
+    })
+    .then(res=>res.text())
+    .then(data=>{
+
+        if(data=="ok"){
+            window.location.href = "nueva_contrasena.html?correo="+correo;
+        }else{
+            alert("Correo no encontrado");
+        }
+
+    });
+}
+</script>
+
+</body>
+</html>

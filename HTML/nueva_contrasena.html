@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nueva contraseña</title>
+<link rel="stylesheet" href="../CSS/auth.css">
+</head>
+<body>
+
+<div class="form">
+    <h2>Nueva contraseña</h2>
+
+    <input type="password" id="pass1" placeholder="Nueva contraseña">
+    <input type="password" id="pass2" placeholder="Confirmar contraseña">
+
+    <button onclick="cambiarPassword()">Cambiar contraseña</button>
+</div>
+
+<script>
+const url = new URLSearchParams(window.location.search);
+const correo = url.get("correo");
+
+function cambiarPassword(){
+
+    const p1 = document.getElementById("pass1").value.trim();
+    const p2 = document.getElementById("pass2").value.trim();
+
+    if(p1 === "" || p2 === ""){
+        alert("Completa los campos");
+        return;
+    }
+
+    if(p1 !== p2){
+        alert("Las contraseñas no coinciden");
+        return;
+    }
+
+    fetch("../PROGRAMAS/cambiar_pass.php",{
+        method:"POST",
+        headers:{"Content-Type":"application/x-www-form-urlencoded"},
+        body:`correo=${encodeURIComponent(correo)}&pass=${encodeURIComponent(p1)}`
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.estado === "ok"){
+            alert("Contraseña actualizada");
+            window.location.href="login.html";
+        }else{
+            alert("Error al actualizar");
+        }
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,38 +15,43 @@
     <div class="logo">🛏️ RELAX HOGAR</div>
 
     <nav>
-        <a href="../HTML/index.html">Productos</a>
-        <a href="../HTML/index.html#Nosotros">Nuestra Empresa</a>
-        <a href="#destacados">Destacados</a>
-        <a href="../HTML/listaDeseos.html" class="active">Lista de deseos</a>
+        <a href="../HTML/productos.html">Productos</a>
+        <a href="../PROGRAMAS/nosotros.php#nosotros">Nuestra Empresa</a>
+        <a href="../HTML/index.html#destacados">Destacados</a>
+        <a href="/Proyecto/HTML/listaDeseos.html" class="active">Lista de deseos</a>
     </nav>
 
 <div id="btnLogin">
-    <a href="../HTML/login.html" class="btn">Iniciar sesión</a>
-    <a href="../HTML/registro.html" class="btn-outline">Registrarse</a>
+    <a href="/Proyecto/HTML/login.html" class="btn">Iniciar sesión</a>
+    <a href="/Proyecto/HTML/registro.html" class="btn-outline">Registrarse</a>
 </div>
 
 <div id="userSession" class="nav-sesion">
-    <span id="nombreUsuario"></span>
-    <button onclick="cerrarSesion()">Cerrar sesión</button>
+
+    <div class="perfil-nav" onclick="irPerfil()" style="cursor:pointer;">
+        <img id="fotoNav" src="../IMAGENES/default.png">
+        <span id="nombreUsuario"></span>
+    </div>
+
+    <button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>
 </div>
 
 
 </header>
 
 <main class="contenedor-deseos">
-    <h1>💖 Mi Lista de Deseos</h1>
-
+    <h1>🎁Mi Lista de Deseos</h1>
     <p id="cargando">⏳ Cargando tu lista de deseos...</p>
 
     <div id="listaDeseos" class="wishlist-grid"></div>
-
+    <div class="form-compra">
+    <input type="text" id="nombreCliente" placeholder="Tu nombre">
+    <input type="date" id="fechaCompra">
+</div>
     <div class="acciones">
-        <button class="btn-secundario">💳 Método de pago</button>
-        <button class="btn-secundario">🧾 Factura virtual</button>
-         <button class="btn-principal" onclick="irAPago()">✅ Finalizar compra</button>
-
+         <button class="btn-principal" onclick="finalizarCompra()">✅ Finalizar compra</button>
     </div>
+
 </main>
 
 <script src="../JS/listaDeseos.js"></script>

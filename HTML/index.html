@@ -17,24 +17,30 @@
     </div>
 
     <nav>
-        <a href="#productos">Productos</a>
-        <a href="#nosotros">Nuestra Empresa</a>
+        <a href="../HTML/productos.html">Productos</a>
+        <a href="../PROGRAMAS/nosotros.php">Nuestra Empresa</a>
         <a href="#destacados">Destacados</a>
-        <a href="listaDeseos.html">Lista de deseos</a>
+        <a href="/Proyecto/HTML/listaDeseos.html">Lista de deseos</a>
     </nav>
 
-<div class="cliente" id="clienteNav">
-<div id="btnLogin">
-    <a href="../HTML/login.html" class="btn">Iniciar sesión</a>
-    <a href="../HTML/registro.html" class="btn-outline">Registrarse</a>
-</div>
+    <div class="cliente" id="clienteNav">
 
+        <div id="btnLogin" class="nav-buttons">
+            <a href="../HTML/login.html" class="btn">Iniciar sesión</a>
+            <a href="../HTML/registro.html" class="btn-outline">Registrarse</a>
+        </div>
+    
 <div id="userSession" class="nav-sesion">
-    <span id="nombreUsuario"></span>
-    <button onclick="cerrarSesion()">Cerrar sesión</button>
+
+    <div class="perfil-nav" onclick="irPerfil()" style="cursor:pointer;">
+        <img id="fotoNav" src="../IMAGENES/default.png">
+        <span id="nombreUsuario"></span>
+    </div>
+
+    <button class="btn" onclick="cerrarSesion()">Cerrar sesión</button>
 </div>
-
-
+    
+    </div>
 </header>
 
 <!-- HERO -->
@@ -45,11 +51,13 @@
             En Relax Hogar diseñamos cobijas y almohadas pensadas para brindarte
             suavidad, calidad y el mejor descanso cada noche.
         </p>
-        <a href="#productos" class="btn-principal">Ver productos</a>
+<a href="productos.html" class="btn-principal" style="z-index:10; position:relative;">
+    Ver productos
+</a>
     </div>
 
     <div class="hero-img">
-        <img src="../IMAGENES/WhatsApp_Image_2025-06-02_at_4.41.28_PM.webp" alt="Relax Hogar">
+        <img src="../IMAGENES/sheep_5.jpg" alt="Relax Hogar">
     </div>
 </section>
 
@@ -66,16 +74,15 @@
                 <h3>Cobija Premium</h3>
                 <p>Ultra suave, ideal para noches frías.</p>
                 <span>$120.000</span>
-                <button>Ver detalles</button>
             </div>
         </div>
+
 
         <button class="flecha" onclick="mover(1)">❯</button>
     </div>
 </section>
-
 <!-- CATÁLOGO -->
-<section id="productos" class="catalogo">
+<!--<section id="productos" class="catalogo">
     <h2>Nuestros Productos</h2>
 
     <div class="grid">
@@ -109,12 +116,33 @@
 
         </div>
 </section>
+-->
+<section class="beneficios">
+    <h2>¿Por qué elegir Relax Hogar?</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h4>🛏️ Máxima comodidad</h4>
+            <p>Productos diseñados para el mejor descanso.</p>
+        </div>
+
+        <div class="card">
+            <h4>🚚 Envíos rápidos</h4>
+            <p>Entrega segura a la puerta de tu casa.</p>
+        </div>
+
+        <div class="card">
+            <h4>💖 Calidad garantizada</h4>
+            <p>Materiales premium en cada producto.</p>
+        </div>
+    </div>
+</section>
 
 <footer class="footer">
-    <p>© 2025 Relax Hogar | Descansa mejor</p>
+    <p>© 2026 Relax Hogar | Descansa mejor</p>
 </footer>
 
-<script src="../JS/productos.js"></script>
+
 <script src="../JS/sesion.js"></script>
 
 <script>
@@ -141,28 +169,51 @@ function agregarDeseo(id) {
     alert("❤️ Producto agregado a tu lista de deseos");
 }
 </script>
-
 <script>
-const productos = [
+const destacados = [
     {
-        id: 1,
-        nombre: "Almohada Ergonómica",
-        precio: 80000,
-        imagen: "isranunkel-almohada-ergonomica-multiposicion__1268134_pe928636_s5.avif"
+        nombre: "Cobija Premium",
+        descripcion: "Ultra suave, ideal para noches frías.",
+        precio: "$120.000",
+        imagen: "../IMAGENES/WhatsApp_Image_2025-06-02_at_4.41.28_PM.webp"
     },
     {
-        id: 2,
         nombre: "Cobija Polar",
-        precio: 95000,
-        imagen: "7702704472673-1.webp"
+        descripcion: "Calidez y suavidad extrema.",
+        precio: "$95.000",
+        imagen: "../IMAGENES/7702704472673-1.webp"
     },
     {
-        id: 3,
         nombre: "Almohada Memory Foam",
-        precio: 110000,
-        imagen: "images.jpg"
+        descripcion: "Se adapta a tu descanso.",
+        precio: "$110.000",
+        imagen: "../IMAGENES/images.jpg"
     }
 ];
+
+let indice = 0;
+
+function mover(direccion) {
+
+    const contenedor = document.querySelector(".producto-activo");
+    const img = contenedor.querySelector("img");
+    const titulo = contenedor.querySelector("h3");
+    const texto = contenedor.querySelector("p");
+    const precio = contenedor.querySelector("span");
+
+    indice += direccion;
+
+    if (indice < 0) indice = destacados.length - 1;
+    if (indice >= destacados.length) indice = 0;
+
+    const producto = destacados[indice];
+
+    img.src = producto.imagen;
+    titulo.textContent = producto.nombre;
+    texto.textContent = producto.descripcion;
+    precio.textContent = producto.precio;
+}
 </script>
+<script src="../JS/sesion.js"></script>
 </body>
 </html>
