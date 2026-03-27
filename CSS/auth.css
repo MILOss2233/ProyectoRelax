@@ -1,0 +1,88 @@
+/* 🌸 RESET */
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg, #fdf2f8, #eef2ff);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* 📦 CONTENEDOR */
+.form{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    width:320px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* ✨ TÍTULO */
+.form h2{
+    margin-bottom:20px;
+    color:#e89cae;
+}
+
+/* 🧾 INPUTS */
+.form input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:12px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.form input:focus{
+    border-color:#d2c3ff;
+    box-shadow:0 0 8px rgba(167,139,250,0.3);
+}
+
+/* 🔘 BOTÓN */
+.form button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:12px;
+    background: linear-gradient(135deg, #e89cae, #f472b6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.form button:hover{
+    transform:scale(1.05);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 🔗 LINKS */
+.form a{
+    display:block;
+    margin-top:10px;
+    color:#7c3aed;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.form a:hover{
+    text-decoration:underline;
+}
+
+/* ✨ ANIMACIÓN */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

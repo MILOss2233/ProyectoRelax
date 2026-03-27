@@ -1,0 +1,171 @@
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#f4f6fb;
+}
+
+/* LAYOUT */
+.layout{
+    display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:190px;
+    background:#0f172a;
+    color:white;
+    height:100vh;
+    padding:20px;
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.sidebar button{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#1e293b;
+    color:white;
+    cursor:pointer;
+}
+
+.sidebar button:hover{
+    background:#334155;
+}
+
+.logout{
+    background:#ef4444;
+}
+
+/* MAIN */
+.main{
+    margin-left:220px; /* 🔥 SOLUCIÓN REAL */
+    padding:20px;
+    width:calc(100% - 220px);
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+}
+
+/* GRID */
+.grid-2{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+/* PRODUCTOS */
+#listaProductos div{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:white;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+#listaProductos img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+/* PEDIDOS */
+#listaPedidos div{
+    background:white;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+/* HIDDEN */
+.hidden{
+    display:none;
+}
+/* BOTONES BONITOS */
+button{
+    border:none;
+    border-radius:8px;
+    padding:8px 12px;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.2s;
+}
+
+/* BOTONES PRODUCTOS */
+#listaProductos button{
+    background:#b1bfde;
+    color:white;
+    margin-left:5px;
+}
+
+#listaProductos button:hover{
+    background:#1e293b;
+    transform:scale(1.05);
+}
+
+/* BOTONES PEDIDOS */
+#listaPedidos button{
+    background:#9bb3e7;
+    color:white;
+    margin-left:5px;
+}
+
+#listaPedidos button:hover{
+    background:#1d4ed8;
+}
+
+/* BOTÓN CAMBIAR */
+#listaPedidos button:first-of-type{
+    background:#d7b2ff;
+}
+
+#listaPedidos button:first-of-type:hover{
+    background:#dd6dd4;
+}
+.tabla-kardex{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+.tabla-kardex table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.tabla-kardex th{
+    background:#16a34a;
+    color:white;
+    padding:10px;
+    font-size:13px;
+}
+
+.tabla-kardex td{
+    padding:10px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
+
+.tabla-kardex tr:hover{
+    background:#f1f5f9;
+}

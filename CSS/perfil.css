@@ -1,0 +1,85 @@
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#f4f6fb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* CONTENEDOR */
+.perfil-container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:400px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+/* TITULO */
+.perfil-container h2{
+    margin-bottom:20px;
+}
+
+/* INPUTS */
+.perfil-container input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.2s;
+}
+
+.perfil-container input:focus{
+    border-color:#e08bed;
+}
+
+/* BOTON */
+.perfil-container button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#e08bed;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.perfil-container button:hover{
+    background:#7c2888;
+}
+
+/* FOTO */
+.foto-box{
+    margin-bottom:15px;
+}
+
+.foto-box img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+    border:3px solid #e08bed;
+}
+
+/* INPUT FILE */
+.foto-box input{
+    border:none;
+}
+
+/* BOTON VOLVER */
+.volver{
+    margin-top:15px;
+    display:inline-block;
+    color:#e08bed;
+    text-decoration:none;
+    font-size:14px;
+}

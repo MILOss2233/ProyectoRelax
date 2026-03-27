@@ -47,8 +47,47 @@ nav a:hover {
 /* =========================
    SESIÓN
 ========================= */
-#btnLogin a {
-    margin-left: 10px;
+/* CONTENEDOR BOTONES LOGIN */
+#btnLogin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* BOTÓN PRINCIPAL */
+#btnLogin .btn {
+    background: #e89cae;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+#btnLogin .btn:hover {
+    background: #d87c92;
+    transform: translateY(-1px);
+}
+
+/* BOTÓN CONTORNO */
+#btnLogin .btn-outline {
+    border: 2px solid #e89cae;
+    color: #e89cae;
+    padding: 6px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+#btnLogin .btn-outline:hover {
+    background: #e89cae;
+    color: white;
 }
 
 .nav-sesion {
@@ -204,22 +243,6 @@ nav a:hover {
     box-shadow: 0 10px 25px rgba(232,156,174,.4);
 }
 
-.btn-secundario {
-    padding: 12px 25px;
-    border-radius: 30px;
-    border: 2px solid #e89cae;
-    background: transparent;
-    font-weight: 600;
-    color: #e89cae;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.btn-secundario:hover {
-    background: #e89cae;
-    color: white;
-}
-
 /* =========================
    ACCIONES
 ========================= */
@@ -233,4 +256,101 @@ nav a:hover {
 
 .acciones button {
     min-width: 180px;
+}
+/* BOTONES */
+.btn,
+.btn-principal {
+    background: var(--principal);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn-principal:hover {
+    background: var(--principal-hover);
+    transform: translateY(-2px);
+}
+
+/* Botón contorno */
+.btn-outline {
+    border: 2px solid var(--principal);
+    background: transparent;
+    color: var(--principal);
+    padding: 9px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--principal);
+    color: white;
+}
+.acciones .btn-principal {
+    background: #e89cae !important;
+    color: white !important;
+}
+.perfil-nav{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.perfil-nav img{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    object-fit:cover;
+}
+/* =========================
+   FORM COMPRA BONITO
+========================= */
+.form-compra{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+
+/* INPUTS */
+.form-compra input{
+    padding: 12px 18px;
+    border-radius: 25px;
+    border: 1px solid #eee;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,.05);
+    font-size: 14px;
+    min-width: 220px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.form-compra input:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,.08);
+}
+
+/* FOCUS */
+.form-compra input:focus{
+    border: 1px solid #e89cae;
+    box-shadow: 0 0 0 3px rgba(232,156,174,.2);
+}
+
+/* PLACEHOLDER */
+.form-compra input::placeholder{
+    color: #aaa;
 }

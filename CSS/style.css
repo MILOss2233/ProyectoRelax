@@ -121,8 +121,8 @@ nav a:hover {
 
 .producto-activo img {
     width: 260px;
-    height: 200px;              /* 👈 limita el tamaño */
-    object-fit: cover;          /* 👈 recorta sin deformar */
+    height: 200px;             
+    object-fit: cover;        
     border-radius: 20px;
     margin-bottom: 15px;
 }
@@ -182,7 +182,6 @@ nav a:hover {
     font-weight: 600;
     color: #5c2bbf;
 }
-
 .nav-sesion button {
     padding: 6px 14px;
     border: none;
@@ -318,4 +317,80 @@ nav a:hover {
 .producto-activo:hover img {
     filter: brightness(1.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.beneficios {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.beneficios h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.beneficios .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+
+.beneficios .card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+/* ICONO */
+.beneficios .card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* TEXTO */
+.beneficios .card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* HOVER PRO */
+.beneficios .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+}
+
+/* EFECTO BORDE SUAVE */
+.beneficios .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, #e89cae, #f3b9c6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: .3s;
+}
+
+.beneficios .card:hover::before {
+    opacity: 1;
+}
+.perfil-nav{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.perfil-nav img{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    object-fit:cover;
 }
